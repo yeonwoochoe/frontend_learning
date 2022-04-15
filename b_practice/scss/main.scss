@@ -1,8 +1,16 @@
-@import "./sub.scss", "./sub2.scss";
-$color: royalblue;
+$psuedoCode: (
+  "hover": #87f,
+  "focus": #4f3,
+  "active": #fda,
+  "selected": #dfd,
+);
 
-.container {
-  h1 {
-    color: $color;
+// map-get($변수, 프로퍼티);로 value 호출
+.list_area {
+  &:hover {
+    background-color: map-get($psuedoCode, "hover");
+  }
+  &:focus {
+    background-color: map-get($psuedoCode, "focus");
   }
 }
