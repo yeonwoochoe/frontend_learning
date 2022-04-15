@@ -1,0 +1,8 @@
+@import "./sub.scss", "./sub2.scss";
+$color: royalblue;
+
+.container {
+  h1 {
+    color: $color;
+  }
+}
