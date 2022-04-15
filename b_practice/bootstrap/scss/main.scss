@@ -1,0 +1,22 @@
+//덮어쓰기 초기화
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+$theme-colors: (
+  "primary": $primary,
+  // 'secondary': $secondary (기본 값) -> yellowgreen 변경
+  "secondary": yellowgreen,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark,
+);
+
+.text-yellowgreen {
+  color: yellowgreen;
+}
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
