@@ -78,7 +78,7 @@ function makeCounter() {
   let num = 0;
 
   return function () {
-    return num++;
+    return num;
   };
 }
 
@@ -87,3 +87,19 @@ let counter = makeCounter();
 console.log(counter()); //0
 console.log(counter()); //1
 console.log(counter()); //2
+
+//스코프 예제
+
+let apple = "apple";
+
+function fruit(eat) {
+  let apple = "banana";
+  eat();
+}
+
+function eat() {
+  console.log(apple);
+}
+
+fruit(eat);
+eat();
