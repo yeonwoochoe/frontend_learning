@@ -17,14 +17,19 @@ function saveToDos() {
 //삭제 기능 함수
 function deleteToDo(event) {
   const li = event.target.parentElement;
+  console.log(li.id);
   li.remove();
+  toDos = toDos.filter(toDo => toDo.id !== parseInt(li.id));
+  saveToDos();
 }
 
 //todolist 그리는 함수
 function paintToDo(newTodo) {
   const li = document.createElement("li"); //li생성
+  li.id = newTodo.id;
+  //각각의 li 아이템을 구별하기위해 아이디값 부여
   const span = document.createElement("span"); //san 생성
-  span.innerText = newTodo; // span태그 안에 handleTodo함수에서도 인풋값 넣어주기(todolist텍스트)
+  span.innerText = newTodo.text; // span태그 안에 handleTodo함수에서도 인풋값 넣어주기(todolist텍스트)
   const button = document.createElement("button"); //버튼 생성
   button.innerText = "❌"; //x이모지 텍스트 삽입
   button.addEventListener("click", deleteToDo);
@@ -41,9 +46,14 @@ function handleToDoSubmit(event) {
   const newTodo = toDoInput.value;
   //인풋창비워주기
   toDoInput.value = "";
-  toDos.push(newTodo);
+  const newTodoObj = {
+    text: newTodo,
+    id: Date.now(),
+    //아이디값 생성
+  };
+  toDos.push(newTodoObj);
   //인풋값 빈배열 todos에 넣어주기
-  paintToDo(newTodo);
+  paintToDo(newTodoObj);
   //인풋값 화면에 그려주기
   saveToDos();
 }
